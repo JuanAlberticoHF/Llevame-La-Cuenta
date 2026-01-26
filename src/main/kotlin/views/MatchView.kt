@@ -67,10 +67,10 @@ class MatchView {
               mas el numero de fichas de aumento.
             - Pagara la cuenta quien no pueda jugar carta en su turno o quien 
               la pague voluntariamente.
-            - El participante que pague la cuenta se le restara de sus ahorros.
-            - El participante que pague la cuenta si se jugaron tantas cartas como 
-              el numero de participantes aumentara su mano en +1.
-            - Cuando se un participante se quede sin ahorros, la partida termina.
+            - El jugador que pague la cuenta se le restara de sus ahorros.
+            - El jugador que pague la cuenta si se jugaron tantas cartas como 
+              el numero de jugadores aumentara su mano en +1.
+            - Cuando se un jugador se quede sin ahorros, la partida termina.
             - Gana el que tenga mas ahorros.
         """.trimIndent())
     }
