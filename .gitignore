@@ -38,3 +38,4 @@ build/
 ### Mac OS ###
 .DS_Store
 /.idea/dictionaries/project.xml
+/.idea/copilot.data.migration.agent.xml
