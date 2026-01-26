@@ -1,7 +1,7 @@
-# Llevar La Cuenta
+# Llevame La Cuenta
 
 ## ¿Qué es?
-**Llevar La Cuenta** es un programa inspirado en el juego de cartas "La Cuenta" que viene a facilitar la 
+**Llevame La Cuenta** es un programa inspirado en el juego de cartas "La Cuenta" que viene a facilitar la 
 administración de una partida, gestionando los ahorros de los jugadores por cada ronda, facilitar el 
 calcular la cuenta, restarle los pagos a los jugadores y al terminar la partida imprimiendo los resultados.
 
@@ -21,7 +21,7 @@ de proyecto para crear y mejorar mis capacidades decidí que es una buena idea p
 utilizado.
 
 ## ¿Qué tecnologías utiliza?
-El programa "Llevar La Cuenta" utiliza:
+El programa "Llevame La Cuenta" utiliza:
 - Kotlin: Lenguaje de programación para escribir la lógica.
 - MySQL/MongoDB: Base de datos relacional o no relacional por determinar.
 - Git: Control de versiones local.
@@ -33,3 +33,11 @@ arquitectura del programa y realizar una separación de responsabilidades (MVC),
 bien ramificado basándome en metodología de gitflow y realizar commits bien explicados (Conventional Commits), 
 documentar el programa, elaborar una guía, que el programa permita varios idiomas (español, inglés, etc.), organizar 
 el proyecto con las propias herramientas de GitHub (Issues, Projects) y desarrollar el programa en varias fases.
+
+## ¿Cuántas fases tendrá el desarrollo?
+
+### 1ª FASE
+
+### 2ª FASE
+
+### 3ª FASE
