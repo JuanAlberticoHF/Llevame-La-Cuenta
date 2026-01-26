@@ -1,0 +1,45 @@
+package com.github.juanalberticohf.views
+
+/**
+ * Vista principal de la aplicacion
+ * Gestiona la interaccion con el usuario en el menu principal
+ */
+class AppView {
+    /** Muestra el mensaje de bienvenida al usuario al iniciar el programa. */
+    fun welcomeMessage() {
+        println("¡¡BIENVENIDO A LLEVAME LA CUENTA!!")
+        println("Este programa te permitira administrar tus ahorros durante la partida. El objetivo es ser el jugador" +
+                "con mas ahorros al final de la partida.")
+    }
+
+    /**
+     * Muestra el menu principal del programa y solicita al usuario que seleccione una opcion.
+     * @return Opcion seleccionada por el usuario.
+     */
+    fun mainMenu(): Int {
+        println("\n[] MENU INICIO")
+        println("\t1. Iniciar nueva partida")
+        println("\t2. Continuar partida guardada (No Disponible)")
+        println("\t3. Ver historial de partidas (No Disponible)")
+        println("\t0. Salir")
+        print("Selecciona una opcion: ")
+
+        // TODO validar input
+        val input = readln().toInt()
+
+        return input
+    }
+
+    /**
+     * Muestra un mensaje indicando que la opcion no esta disponible en la version actual del programa.
+     * @param optionNumber Numero de la opcion seleccionada por el usuario.
+     */
+    fun notAvaiableMessage(optionNumber: Int) {
+        println("La opcion $optionNumber no esta disponible en esta version del programa.")
+    }
+
+    /** Muestra un mensaje de salida al usuario al finalizar el programa. */
+    fun leaveMessage() {
+        println("Gracias por usar Llevame la cuenta. ¡Hasta luego!")
+    }
+}
