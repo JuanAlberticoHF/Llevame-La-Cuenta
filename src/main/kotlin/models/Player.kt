@@ -1,13 +1,13 @@
 package com.github.juanalberticohf.models
 
 /**
-* La clase participante sirve para modelar y guardar los datos de un
-* participante durante la partida.
-* @param id Identificador del usuario en la partida
-* @param name Nombre del usuario en la partida
+* La clase Player sirve para modelar y guardar los datos de un
+* jugador durante la partida.
+* @param id Identificador del jugador en la partida
+* @param name Nombre del jugador en la partida
 * @param initialSaves Ahorros iniciales asignados
 * @param currentSaves Los ahorros gestionados durante la partida
-* @param increaseTokens Fichas de aumento del participante (maximo: 5)
+* @param increaseTokens Fichas de aumento del jugador (maximo: 5)
 * @param isWinner Indica si el jugador es el ganador de la partida
 * */
 data class Player (
@@ -21,7 +21,7 @@ data class Player (
     var isWinner: Boolean = false
 
     /**
-     * Permite restar una cantidad a los ahorros del participante y devolver el estado de ahorros.
+     * Permite restar una cantidad a los ahorros del jugador y devolver el estado de ahorros.
      * @param amount Cantidad a restar a los ahorros
      *
      * @return ahorros actuales tras la resta
