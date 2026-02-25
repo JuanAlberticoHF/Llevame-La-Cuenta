@@ -74,7 +74,7 @@ class MatchView {
 
     /** Solicita al usuario que presione ENTER para iniciar la partida */
     fun requestStartMatch() {
-        println("\nPresiona ENTER para iniciar la partida...")
+        print("\nPresiona ENTER para iniciar la partida...")
         readln()
     }
 }
