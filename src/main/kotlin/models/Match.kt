@@ -8,6 +8,6 @@ package com.github.juanalberticohf.models
  */
 data class Match(
     val players: List<Player>,
-    val rounds : List<Round> = mutableListOf(),
+    val rounds : MutableList<Round> = mutableListOf(),
     val isMatchEnded: Boolean = false
 )
