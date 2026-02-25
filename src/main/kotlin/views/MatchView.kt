@@ -63,14 +63,11 @@ class MatchView {
         println("")
         println("""
             Reglas basicas del juego:
-            - Todos los jugadores al inicio de cada ronda deberan tener 5 cartas 
-              mas el numero de fichas de aumento.
-            - Pagara la cuenta quien no pueda jugar carta en su turno o quien 
-              la pague voluntariamente.
+            - Todos los jugadores al inicio de cada ronda deberan tener 5 cartas mas el numero de fichas de aumento.
+            - Pagara la cuenta quien no pueda jugar carta en su turno o quien a pague voluntariamente.
             - El jugador que pague la cuenta se le restara de sus ahorros.
-            - El jugador que pague la cuenta si se jugaron tantas cartas como 
-              el numero de jugadores aumentara su mano en +1.
-            - Cuando se un jugador se quede sin ahorros, la partida termina.
+            - El jugador que pague la cuenta si se jugaron tantas cartas como el numero de jugadores aumentara su mano en +1.
+            - Cuando un jugador se quede sin ahorros, la partida termina.
             - Gana el que tenga mas ahorros.
         """.trimIndent())
     }
