@@ -1,6 +1,7 @@
 package com.github.juanalberticohf.views
 
 import com.github.juanalberticohf.getStartingMoney
+import com.github.juanalberticohf.models.Player
 
 /**
  * Vista de la partida
@@ -75,6 +76,75 @@ class MatchView {
     /** Solicita al usuario que presione ENTER para iniciar la partida */
     fun requestStartMatch() {
         print("\nPresiona ENTER para iniciar la partida...")
+        readln()
+    }
+
+    /**
+     * Muestra un mensaje indicando el fin de la partida, el jugador que se ha quedado sin ahorros y su valor, y que se
+     * comparan los ahorros de los jugadores restantes para determinar el ganador.
+     * @param playerWithoutSaves El jugador que se ha quedado sin ahorros al finalizar la partida.
+     */
+    fun showEndOfMatch(playerWithoutSaves: Player) {
+        println("\n[] FIN DE LA PARTIDA")
+        println("El jugador ${playerWithoutSaves.name} se ha quedado sin ahorros con un valor de ${playerWithoutSaves.currentSaves}€.")
+        println("Para determinar el ganador se comparan los ahorros de los jugadores restantes.")
+    }
+
+    /** Solicita al usuario que presione ENTER para finalizar la partida y declarar al ganador */
+    fun requestEndOfMatch() {
+        print("\nPresiona ENTER para finalizar la partida y declarar el ganador...")
+        readln()
+    }
+
+    /**
+     * Muestra un mensaje indicando el ganador de la partida, su nombre y su cantidad de ahorros finales.
+     * @param winner El jugador ganador de la partida.
+     */
+    fun showWinner(winner: Player) {
+        println("\n[] GANADOR")
+        println("${winner.name} ha ganado la partida con ${winner.currentSaves}€ ahorrados. ¡¡FELICIDADES!!")
+    }
+
+    /**
+     * Muestra un mensaje indicando que hay una disputa por el ganador entre los jugadores con la misma cantidad de
+     * ahorros máximos, sus nombres y su cantidad de ahorros.
+     * Solicita al usuario que seleccione el ganador entre los jugadores empatados, indicando que se debe determinar el
+     * ganador por la cantidad de dinero en mano o por consenso si también tienen la misma cantidad de dinero en mano.
+     * @param winners Lista de jugadores empatados con la misma cantidad de ahorros máximos al finalizar la partida.
+     * @return El jugador seleccionado como ganador entre los jugadores empatados.
+     */
+    fun showAndRequestWinner(winners: List<Player>): Player {
+        println("\n[] DISPUTA POR EL GANADOR")
+        print("El jugador ")
+        winners.forEach {
+            when (it) {
+                winners.first() -> {
+                    print("${it.name} ")
+                }
+                winners.last() -> {
+                    print("y ${it.name} ")
+                }
+                else -> {
+                    print(",${it.name} ")
+                }
+            }
+        }
+        println("tienen la maxima cantidad de ahorros (${winners.first().currentSaves}€).")
+        println("- Para el desempate se debe determinar cual jugador tiene mas dinero en su mano para elegirlo ganador.")
+        println("- Si los jugadores tambien tienen la misma cantidad de dinero en mano, los mismos jugadores decidiran el ganador por consenso.")
+        winners.forEach {
+            println("\t${it.id}. ${it.name}")
+        }
+        print("Selecciona el ganador (n): ")
+        // TODO verificar que los ids introducidos son validos
+        val idsInputs = readln().toInt()
+        val winner = winners.find { it.id == idsInputs }
+        return winner!!
+    }
+
+    /** Solicita al usuario que presione ENTER para volver al menu principal tras finalizar la partida y mostrar el ganador. */
+    fun requestGoToMenu() {
+        print("\nPresiona ENTER para volver al menu principal...")
         readln()
     }
 }
