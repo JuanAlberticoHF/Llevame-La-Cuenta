@@ -9,7 +9,7 @@ class AppView {
     fun welcomeMessage() {
         println("¡¡BIENVENIDO A LLEVAME LA CUENTA!!")
         println("Este programa te permitira administrar tus ahorros durante la partida. El objetivo es ser el jugador" +
-                "con mas ahorros al final de la partida.")
+                " con mas ahorros al final de la partida.")
     }
 
     /**
