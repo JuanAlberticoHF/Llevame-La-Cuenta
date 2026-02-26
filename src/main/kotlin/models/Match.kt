@@ -9,5 +9,5 @@ package com.github.juanalberticohf.models
 data class Match(
     val players: List<Player>,
     val rounds : MutableList<Round> = mutableListOf(),
-    val isMatchEnded: Boolean = false
+    var isMatchEnded: Boolean = false
 )
