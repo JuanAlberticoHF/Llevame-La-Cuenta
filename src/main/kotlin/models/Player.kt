@@ -15,18 +15,17 @@ data class Player (
     val name: String,
     val initialSaves: Int,
 ) {
-    var currentSaves: Int = initialSaves
+    var currentSaves: Double = initialSaves.toDouble()
         private set
     var increaseTokens = 0
     var isWinner: Boolean = false
 
     /**
      * Permite restar una cantidad a los ahorros del jugador y devolver el estado de ahorros.
-     * @param amount Cantidad a restar a los ahorros
-     *
+     * @param amount Cantidad a restar a los ahorros del jugador
      * @return ahorros actuales tras la resta
      */
-    fun subtractSavings (amount: Int): Int {
+    fun subtractSavings (amount: Double): Double {
         currentSaves -= amount
         return currentSaves
     }
