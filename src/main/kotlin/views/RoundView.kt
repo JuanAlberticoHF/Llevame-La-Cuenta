@@ -6,8 +6,6 @@ import com.github.juanalberticohf.models.enums.PaymentMethod
 import com.github.juanalberticohf.models.input.InputRound
 
 class RoundView {
-    // todo: Implementar vista de ronda
-
     /**
      * Muestra la información de la ronda actual, incluyendo el número de ronda, las estadísticas de los jugadores y la guía de reparto de cartas.
      * @param roundNumber El número de la ronda actual.
