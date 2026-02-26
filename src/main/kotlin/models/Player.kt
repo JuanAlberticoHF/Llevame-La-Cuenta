@@ -31,6 +31,19 @@ data class Player (
         return currentSaves
     }
 
+    /**
+     * Permite aumentar el número de fichas de aumento del jugador, con un máximo de 5.
+     * @return 1 si se ha podido aumentar la ficha, 0 si ya se han alcanzado las 5 fichas de aumento
+     */
+    fun increaseTokenInOne(): Int {
+        if (increaseTokens < 5) {
+            ++increaseTokens
+            return 1
+        } else {
+            return 0
+        }
+    }
+
     override fun toString(): String {
         return "Player(id=$id, name='$name', initialSaves=$initialSaves, currentSaves=$currentSaves, increaseTokens=$increaseTokens, isWinner=$isWinner)"
     }
