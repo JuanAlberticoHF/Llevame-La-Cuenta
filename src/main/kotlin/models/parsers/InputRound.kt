@@ -1,4 +1,4 @@
-package com.github.juanalberticohf.models.input
+package com.github.juanalberticohf.models.parsers
 
 import com.github.juanalberticohf.models.PlayerStats
 import com.github.juanalberticohf.models.enums.PaymentMethod

@@ -2,7 +2,7 @@ package com.github.juanalberticohf.controllers
 
 import com.github.juanalberticohf.models.Match
 import com.github.juanalberticohf.models.PlayerStats
-import com.github.juanalberticohf.models.input.InputRound
+import com.github.juanalberticohf.models.parsers.InputRound
 import com.github.juanalberticohf.views.RoundView
 
 /**
