@@ -61,3 +61,38 @@ fun getPlayersTable(players: List<Player>): String {
     sb.append(separator)
     return sb.toString()
 }
+
+/**
+ * Procesa y calcula el monto total de la cuenta a partir de una cadena de texto que representa el calculo de la cuenta.
+ *
+ * La cadena contiene numeros y operadores de suma y resta, por ejemplo: "100+50-20".
+ *
+ * El metodo evalua la expresion y devuelve el resultado final como un valor Int.
+ */
+fun calculateBill(billToCalculate: String): Int {
+    var total = 0
+    var currentNumber = ""
+    var currentOperator = '+'
+
+    for (char in billToCalculate) {
+        when (char) {
+            in '0'..'9' -> currentNumber += char
+            '+', '-' -> {
+                if (currentNumber.isNotEmpty()) {
+                    val number = currentNumber.toInt()
+                    total = if (currentOperator == '+') total + number else total - number
+                    currentNumber = ""
+                }
+                currentOperator = char
+            }
+        }
+    }
+
+    // Procesar el último número si existe
+    if (currentNumber.isNotEmpty()) {
+        val number = currentNumber.toInt()
+        total = if (currentOperator == '+') total + number else total - number
+    }
+
+    return total
+}
