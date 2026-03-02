@@ -1,5 +1,6 @@
 package com.github.juanalberticohf.views
 
+import com.github.juanalberticohf.calculateBill
 import com.github.juanalberticohf.models.Player
 import com.github.juanalberticohf.getPlayersTable
 import com.github.juanalberticohf.models.enums.PaymentMethod
@@ -30,13 +31,12 @@ class RoundView {
     }
 
     /**
-     * Solicita al usuario que introduzca el monto total de la cuenta
+     * Solicita al usuario que introduzca el calculo del monto total de la cuenta.
       * @return El monto total de la cuenta introducido por el usuario
      */
     fun requestBillAmount(): Int {
-        print("\nIntroduce el precio total de la cuenta: ")
-        val billAmount = readln().toInt()
-        // TODO validar input
+        print("\nIntroduce el calculo del precio total de la cuenta: ")
+        val billAmount = calculateBill(readln())
         return billAmount
     }
 
@@ -46,7 +46,7 @@ class RoundView {
      * @return Lista de identificadores de los jugadores seleccionados como pagadores
      */
     fun requestPlayersToPay(players: List<Player>): List<Int> {
-        println("¿Que participantes pagan la cuenta? (primero quien pidio la cuenta)")
+        println("\n¿Que participantes pagan la cuenta? (primero quien pidio la cuenta)")
         players.forEach {
             println("\t${it.id}. ${it.name}")
         }
