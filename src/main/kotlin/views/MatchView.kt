@@ -158,7 +158,7 @@ class MatchView {
     fun matchResults(match: Match) {
         println("\n[] RESULTADOS DE LA PARTIDA")
         println("- Ganador: ${match.players.find { it.isWinner}?.name}")
-        println("- Rondas jugadas: ${match.rounds.size}€.")
+        println("- Rondas jugadas: ${match.rounds.size}.")
         match.players.forEach {
             println("\t${it.name}: ${it.currentSaves}€ - ${it.increaseTokens} Fichas A.")
         }
