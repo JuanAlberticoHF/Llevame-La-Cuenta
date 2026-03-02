@@ -1,6 +1,7 @@
 package com.github.juanalberticohf.views
 
 import com.github.juanalberticohf.getStartingMoney
+import com.github.juanalberticohf.models.Match
 import com.github.juanalberticohf.models.Player
 
 /**
@@ -146,5 +147,20 @@ class MatchView {
     fun requestGoToMenu() {
         print("\nPresiona ENTER para volver al menu principal...")
         readln()
+    }
+
+    /**
+     * Muestra los resultados finales de la partida.
+     * - Nombre del ganador
+     * - El número de rondas jugadas
+     * - Las estadísticas finales de cada jugador (nombre, ahorros finales y fichas de aumento obtenidas).
+     */
+    fun matchResults(match: Match) {
+        println("\n[] RESULTADOS DE LA PARTIDA")
+        println("- Ganador: ${match.players.find { it.isWinner}?.name}")
+        println("- Rondas jugadas: ${match.rounds.size}€.")
+        match.players.forEach {
+            println("\t${it.name}: ${it.currentSaves}€ - ${it.increaseTokens} Fichas A.")
+        }
     }
 }

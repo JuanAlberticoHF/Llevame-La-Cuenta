@@ -88,6 +88,9 @@ class MatchController {
             throw Exception("Error al calcular el ganador de la partida.")
         }
 
+        // Muestra las estadisticas finales de la partida
+        matchView.matchResults(match)
+
         // Solicitar al usuario que pulse ENTER volver al menu principal
         matchView.requestGoToMenu()
     }
