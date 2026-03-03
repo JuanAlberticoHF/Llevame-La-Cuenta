@@ -94,22 +94,31 @@ class RoundView {
         }
     }
 
+    /**
+     * Solicita al usuario que seleccione el mét0do de pago utilizado para pagar la cuenta.
+     * @return El mét0do de pago seleccionado por el usuario como un valor del enum PaymentMethod
+     */
     fun requestPaymentMethod(): PaymentMethod {
+        // ToDo: Implementar un control para solo mostrar los metodos de pago realmente disponibles, si una sola persona
+        //  paga la cuenta no puede poder seleccionar otro metodo de pago que no sea UN PAGADOR, si hay varios pagadores
+        //  no se puede seleccionar UN PAGADOR.
         println("\n¿Que metodo de pago se ha utilizado?: ")
         println("\t1. UN PAGADOR")
         println("\t2. A MEDIAS")
         println("\t3. A PACHAS")
-        print("Selecciona una opcion: ")
-        val input = readln().toInt()
+        while (true) {
+            print("Selecciona una opcion (1-3): ")
+            val input = readlnOrNull()?.trim()?.toIntOrNull()
 
-        when (input) {
-            1 -> { return PaymentMethod.SINGLE_PAYER }
-            2 -> { return PaymentMethod.FIFTY_FIFTY }
-            3 -> { return PaymentMethod.GO_DUTCH }
-            else -> {
-                println("Entrada no válida. Por favor, introduce '1', '2' o '3'.")
-                return requestPaymentMethod() // Volver a solicitar la entrada si es inválida
+            if (input != null && input in 1..3) {
+                when (input) {
+                    1 -> { return PaymentMethod.SINGLE_PAYER }
+                    2 -> { return PaymentMethod.FIFTY_FIFTY }
+                    3 -> { return PaymentMethod.GO_DUTCH }
+                }
             }
+
+            println("\nEntrada no válida. Por favor, introduce un número entre 1 y 3.")
         }
     }
 
