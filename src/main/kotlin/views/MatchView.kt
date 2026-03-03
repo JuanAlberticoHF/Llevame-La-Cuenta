@@ -19,15 +19,22 @@ class MatchView {
      * @return Lista con los nombres de los jugadores
      */
     fun requestPlayers(): List<String> {
+        var input: Int?
+
         // Introducir el numero de jugadores
-        print("\nIntroduce el numero de jugadores (3-8): ")
+        while (true) {
+            print("\nIntroduce el numero de jugadores (3-8): ")
 
-        // TODO validar input
-        val input = readln().toInt()
+            input = readlnOrNull()?.trim()?.toIntOrNull()
+            if (input != null && input in 3..8) {
+                break
+            }
+            println("\nEntrada no válida. Por favor, introduce un número entre 3 y 8.")
+        }
 
-        // Introducir los nombres de los jugadores
         val playerNameList = mutableListOf<String>()
 
+        // Introducir los nombres de los jugadores
         println("\nIntroduce el nombre de los $input jugadores: ")
         for (i in 1..input) {
             print("Nombre del jugador $i: ")
