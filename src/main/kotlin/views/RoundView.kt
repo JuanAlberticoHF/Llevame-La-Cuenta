@@ -60,11 +60,17 @@ class RoundView {
         players.forEach {
             println("\t${it.id}. ${it.name}")
         }
-        print("Selecciona uno o varios (1,2,...): ")
-        // TODO verificar que los ids introducidos son validos
-        val idsInputs = readln()
-        val idsList = idsInputs.split(",").map { it.trim().toInt() }
-        return idsList
+        while (true) {
+            print("Selecciona uno o varios (1,2,...): ")
+            val idsInputs = readln()
+            // Convertir la entrada en una lista de enteros, ignorando espacios y validando que sean numeros
+            val idsList = idsInputs.split(",").map { it.trim().toIntOrNull() }
+            // Todos los ids introducidos deben ser validos y corresponder a jugadores existentes
+            if (idsList.all { id -> players.any { it.id == id } }) {
+                return idsList.filterNotNull() // Devolver solo los ids validos eliminando los nulls
+            }
+            println("\nEntrada no válida. Por favor, introduce los números de los jugadores separados por comas.")
+        }
     }
 
     /**
