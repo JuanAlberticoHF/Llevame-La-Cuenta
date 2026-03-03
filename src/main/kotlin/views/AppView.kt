@@ -17,17 +17,20 @@ class AppView {
      * @return Opcion seleccionada por el usuario.
      */
     fun mainMenu(): Int {
-        println("\n[] MENU INICIO")
-        println("\t1. Iniciar nueva partida")
-        println("\t2. Continuar partida guardada (No Disponible)")
-        println("\t3. Ver historial de partidas (No Disponible)")
-        println("\t0. Salir")
-        print("Selecciona una opcion: ")
+        while (true) {
+            println("\n[] MENU INICIO")
+            println("\t1. Iniciar nueva partida")
+            println("\t2. Continuar partida guardada (No Disponible)")
+            println("\t3. Ver historial de partidas (No Disponible)")
+            println("\t0. Salir")
+            print("Selecciona una opcion: ")
 
-        // TODO validar input
-        val input = readln().toInt()
-
-        return input
+            val input = readlnOrNull()?.trim()?.toIntOrNull()
+            if (input != null && input in 0..3) {
+                return input
+            }
+            println("\nEntrada no válida. Por favor, introduce un número entre 0 y 3.")
+        }
     }
 
     /**
