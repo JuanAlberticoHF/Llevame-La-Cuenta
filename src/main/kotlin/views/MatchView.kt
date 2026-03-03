@@ -143,11 +143,16 @@ class MatchView {
         winners.forEach {
             println("\t${it.id}. ${it.name}")
         }
-        print("Selecciona el ganador (n): ")
-        // TODO verificar que los ids introducidos son validos
-        val idsInputs = readln().toInt()
-        val winner = winners.find { it.id == idsInputs }
-        return winner!!
+
+        while (true) {
+            print("Selecciona el ganador (n): ")
+            val idsInputs = readlnOrNull()?.trim()?.toIntOrNull()
+            if (idsInputs != null && winners.any { it.id == idsInputs }) {
+                val winner = winners.find { it.id == idsInputs }
+                return winner!!
+            }
+            println("\nEntrada no válida. Por favor, introduce un id valido.")
+        }
     }
 
     /** Solicita al usuario que presione ENTER para volver al menu principal tras finalizar la partida y mostrar el ganador. */
