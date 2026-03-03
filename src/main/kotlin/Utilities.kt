@@ -73,10 +73,14 @@ fun calculateBill(billToCalculate: String): Int {
     var total = 0
     var currentNumber = ""
     var currentOperator = '+'
+    var hasDigits = false
 
     for (char in billToCalculate) {
         when (char) {
-            in '0'..'9' -> currentNumber += char
+            in '0'..'9' -> {
+                currentNumber += char
+                hasDigits = true
+            }
             '+', '-' -> {
                 if (currentNumber.isNotEmpty()) {
                     val number = currentNumber.toInt()
@@ -84,6 +88,9 @@ fun calculateBill(billToCalculate: String): Int {
                     currentNumber = ""
                 }
                 currentOperator = char
+            }
+            else -> {
+                return -1 // Si se encuentra un caracter no valido, se devuelve -1 para indicar un error
             }
         }
     }
@@ -94,5 +101,9 @@ fun calculateBill(billToCalculate: String): Int {
         total = if (currentOperator == '+') total + number else total - number
     }
 
-    return total
+    if (hasDigits) {
+        return total
+    }
+
+    return -1 // Si no se han encontrado dígitos, se devuelve -1 para indicar un error
 }
