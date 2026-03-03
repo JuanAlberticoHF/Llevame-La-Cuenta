@@ -51,7 +51,8 @@ class RoundController (
         inputRound.paymentMethod = roundView.requestPaymentMethod()
 
         // Calcular el monto a pagar por cada jugador que paga la cuenta
-        val payAmount: Double = (inputRound.billAmount / playersToPay.size).toDouble()
+        // Si el monto total de la cuenta es negativo, se considera que no hay monto a pagar y se asignara 0 a cada jugador
+        val payAmount: Double = if (inputRound.billAmount < 0) 0.0 else (inputRound.billAmount / playersToPay.size).toDouble()
 
         // Crea los objetos PlayerStats para cada jugador, resta el monto y asigna las fichas de aumento
         // Recorre cada jugador de la partida y gestiona sus estadisticas

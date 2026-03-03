@@ -15,12 +15,6 @@ data class InputRound (
                 throw IllegalArgumentException("El valor de billRequester debe estar entre 1 y 8")
         }
     var billAmount: Int = -1
-        set(value) {
-            if (value >= 0)
-                field = value
-            else
-                throw IllegalArgumentException("El valor de billAmount no puede ser negativo")
-        }
     var paymentMethod: PaymentMethod = PaymentMethod.SINGLE_PAYER
     var hasSufficientCards: Boolean = false
     val playersStats: MutableList<PlayerStats> = mutableListOf()
