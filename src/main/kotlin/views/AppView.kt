@@ -38,11 +38,11 @@ class AppView {
      * @param optionNumber Numero de la opcion seleccionada por el usuario.
      */
     fun notAvaiableMessage(optionNumber: Int) {
-        println("La opcion $optionNumber no esta disponible en esta version del programa.")
+        println("\nLa opcion $optionNumber no esta disponible en esta version del programa.")
     }
 
     /** Muestra un mensaje de salida al usuario al finalizar el programa. */
     fun leaveMessage() {
-        println("Gracias por usar Llevame la cuenta. ¡Hasta luego!")
+        println("\nGracias por usar Llevame la cuenta. ¡Hasta luego!")
     }
 }
