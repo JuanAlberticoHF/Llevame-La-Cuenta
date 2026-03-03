@@ -35,9 +35,19 @@ class RoundView {
       * @return El monto total de la cuenta introducido por el usuario
      */
     fun requestBillAmount(): Int {
-        print("\nIntroduce el calculo del precio total de la cuenta: ")
-        val billAmount = calculateBill(readln())
-        return billAmount
+        while (true) {
+            print("\nIntroduce el calculo del precio total de la cuenta: ")
+            val input = readlnOrNull()?.trim()
+            if (input != null) {
+                val billAmount = calculateBill(input)
+                if (billAmount == -1) {
+                    println("Entrada no válida. Por favor, introduce un cálculo válido para el monto total de la cuenta.")
+                    continue
+                }
+                println("Monto calculado: $billAmount€.")
+                return billAmount
+            }
+        }
     }
 
     /**
