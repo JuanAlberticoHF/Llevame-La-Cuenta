@@ -3,7 +3,6 @@ package com.github.juanalberticohf.views
 import com.github.juanalberticohf.calculateBill
 import com.github.juanalberticohf.models.Player
 import com.github.juanalberticohf.getPlayersTable
-import com.github.juanalberticohf.models.enums.PaymentMethod
 import com.github.juanalberticohf.models.parsers.InputRound
 
 class RoundView {
