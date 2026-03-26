@@ -39,3 +39,4 @@ build/
 .DS_Store
 /.idea/dictionaries/project.xml
 /.idea/copilot.data.migration.agent.xml
+/src/main/kotlin/models/parsers/InputPlayerStats.kt
