@@ -2,6 +2,7 @@ package com.github.juanalberticohf.controllers
 
 import com.github.juanalberticohf.models.Match
 import com.github.juanalberticohf.models.PlayerStats
+import com.github.juanalberticohf.models.enums.PaymentMethod
 import com.github.juanalberticohf.models.parsers.InputRound
 import com.github.juanalberticohf.views.RoundView
 
@@ -48,7 +49,7 @@ class RoundController (
         inputRound.hasSufficientCards = roundView.requestSufficientCards()
 
         // Solicitamos el metodo de pago estimado para pagar la cuenta
-        inputRound.paymentMethod = roundView.requestPaymentMethod()
+        inputRound.paymentMethod = getPaymentMethod(playersToPay.size)
 
         // Calcular el monto a pagar por cada jugador que paga la cuenta
         // Si el monto total de la cuenta es negativo, se considera que no hay monto a pagar y se asignara 0 a cada jugador
@@ -84,6 +85,24 @@ class RoundController (
         } else {
             // Pausar el programa y solicitar al usuario que pulse ENTER para avanzar a la siguiente ronda
             roundView.requestNextRound()
+        }
+    }
+
+    /**
+     * Recibe el numero de jugadores que pagan la cuenta y devuelve el metodo de pago correspondiente.
+     *
+     * - Si solo hay un jugador que paga la cuenta, el mét0do de pago es `SINGLE_PAYER`.
+     * - Si dos jugadores pagan la cuenta, el metodo de pago es `FIFTY_FIFTY`
+     * - Si hay entre 3 y 8 jugadores que pagan la cuenta, el mét0do de pago es `GO_DUTCH`.
+     *
+     * @return Devuelve el mét0do de pago base la cantidad de jugadores que pagan la cuenta.
+     */
+    fun getPaymentMethod(playersToPay: Int): PaymentMethod {
+        return when (playersToPay) {
+            1 -> { PaymentMethod.SINGLE_PAYER }
+            2 -> { PaymentMethod.FIFTY_FIFTY }
+            in 3..8 -> { PaymentMethod.GO_DUTCH }
+            else -> { throw IllegalArgumentException("Número de jugadores a pagar no válido. Debe ser entre 1 y 8.") }
         }
     }
 }
