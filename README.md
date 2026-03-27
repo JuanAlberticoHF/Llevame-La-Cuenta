@@ -23,7 +23,6 @@ utilizado.
 ## ¿Qué tecnologías utiliza?
 El programa "Llevame La Cuenta" utiliza:
 - Kotlin: Lenguaje de programación para escribir la lógica.
-- MySQL/MongoDB: Base de datos relacional o no relacional por determinar.
 - Git: Control de versiones local.
 - GitHub: Repositorio remoto del proyecto, documentación, organización, etc.
 
@@ -36,8 +35,29 @@ el proyecto con las propias herramientas de GitHub (Issues, Projects) y desarrol
 
 ## ¿Cuántas fases tendrá el desarrollo?
 
-### 1ª FASE
+### 1ª FASE - 26/06/2024
+
+Programa funcional que permite administrar la partida de "La Cuenta" desde la consola, permitiendo gestionar los ahorros
+de los jugadores, calcular la cuenta, restarle los pagos a los jugadores y al terminar la partida imprimiendo los resultados.
 
 ### 2ª FASE
 
+Implementación de una base de datos para almacenar la información de una partida, permitiendo guardar el estado de la 
+partida, los jugadores, sus ahorros y los resultados. Permitira que los jugadores puedan continuar la partida en otro
+momento y que puedan consultar el historial de partidas anteriores.
+
+- Nitrite: Base de Datos NoSQL Documental (ODM)
+
 ### 3ª FASE
+
+Desarrollo de una aplicación movil que permita a los jugadores gestionar la partida de "La Cuenta" desde su dispositivo 
+móvil utilizando la lógica desarrollada en las fases anteriores.  
+
+La aplicación permitirá a los jugadores crear una nueva partida, gestionar cada ronda de la partida, calcular la cuenta,
+restarle los ahorros a los jugadores y al terminar la partida mostrar los resultados. Por otra parte, permitira archivar
+partidas ya jugadas, consultar el historial de partidas anteriores, compartir resultados, guardar partidas para otro
+momento, etc.
+
+- Android: Plataforma de desarrollo móvil.
+- Jetpack Compose: Framework de UI para Android.
+- Realm: Base de Datos Móvil (ODM)
