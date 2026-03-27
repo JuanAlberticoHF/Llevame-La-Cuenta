@@ -1,10 +1,13 @@
 package com.github.juanalberticohf.views
 
+import com.github.juanalberticohf.console.ConsoleInput
+import com.github.juanalberticohf.console.IConsoleInput
+
 /**
  * Vista principal de la aplicacion
  * Gestiona la interaccion con el usuario en el menu principal
  */
-class AppView {
+class AppView (private val console: IConsoleInput = ConsoleInput()) {
     /** Muestra el mensaje de bienvenida al usuario al iniciar el programa. */
     fun welcomeMessage() {
         println("¡¡BIENVENIDO A LLEVAME LA CUENTA!!")
@@ -25,9 +28,9 @@ class AppView {
             println("\t0. Salir")
             print("Selecciona una opcion: ")
 
-            val input = readlnOrNull()?.trim()?.toIntOrNull()
-            if (input != null && input in 0..3) {
-                return input
+            val opcionMenu = console.readInput()?.trim()?.toInt()
+            if (opcionMenu != null && opcionMenu in 0..3) {
+                return opcionMenu
             }
             println("\nEntrada no válida. Por favor, introduce un número entre 0 y 3.")
         }
