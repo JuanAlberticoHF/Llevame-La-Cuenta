@@ -1,5 +1,7 @@
 package com.github.juanalberticohf.views
 
+import com.github.juanalberticohf.console.ConsoleInput
+import com.github.juanalberticohf.console.IConsoleInput
 import com.github.juanalberticohf.getStartingMoney
 import com.github.juanalberticohf.models.Match
 import com.github.juanalberticohf.models.Player
@@ -8,14 +10,14 @@ import com.github.juanalberticohf.models.Player
  * Vista de la partida
  * Gestiona la interaccion con el usuario para inicializar la partida
  */
-class MatchView {
+class MatchView (private val console: IConsoleInput = ConsoleInput()) {
     /** Muestra un mensaje indicando el inicio de una nueva partida */
     fun startMatchMessage() {
         println("\n[] Iniciando nueva partida")
     }
 
     /**
-     * Solicita el numero de jugadores y sus nombres
+     * Solícita el numero de jugadores y sus nombres
      * @return Lista con los nombres de los jugadores
      */
     fun requestPlayers(): List<String> {
@@ -25,7 +27,7 @@ class MatchView {
         while (true) {
             print("\nIntroduce el numero de jugadores (3-8): ")
 
-            input = readlnOrNull()?.trim()?.toIntOrNull()
+            input = console.readInput()?.trim()?.toIntOrNull()
             if (input != null && input in 3..8) {
                 break
             }
@@ -38,7 +40,7 @@ class MatchView {
         println("\nIntroduce el nombre de los $input jugadores: ")
         for (i in 1..input) {
             print("Nombre del jugador $i: ")
-            var playerName = readln()
+            var playerName = console.readInput() ?: ""
 
             if (playerName.isEmpty()) {
                 playerName = "Jugador $i"
@@ -84,7 +86,7 @@ class MatchView {
     /** Solicita al usuario que presione ENTER para iniciar la partida */
     fun requestStartMatch() {
         print("\nPresiona ENTER para iniciar la partida...")
-        readln()
+        console.readInput()
     }
 
     /**
@@ -101,7 +103,7 @@ class MatchView {
     /** Solicita al usuario que presione ENTER para finalizar la partida y declarar al ganador */
     fun requestEndOfMatch() {
         print("\nPresiona ENTER para finalizar la partida y declarar el ganador...")
-        readln()
+        console.readInput()
     }
 
     /**
@@ -146,7 +148,7 @@ class MatchView {
 
         while (true) {
             print("Selecciona el ganador (n): ")
-            val idsInputs = readlnOrNull()?.trim()?.toIntOrNull()
+            val idsInputs = console.readInput()?.trim()?.toIntOrNull()
             if (idsInputs != null && winners.any { it.id == idsInputs }) {
                 val winner = winners.find { it.id == idsInputs }
                 return winner!!
@@ -158,7 +160,7 @@ class MatchView {
     /** Solicita al usuario que presione ENTER para volver al menu principal tras finalizar la partida y mostrar el ganador. */
     fun requestGoToMenu() {
         print("\nPresiona ENTER para volver al menu principal...")
-        readln()
+        console.readInput()
     }
 
     /**
