@@ -1,11 +1,13 @@
 package com.github.juanalberticohf.views
 
 import com.github.juanalberticohf.calculateBill
+import com.github.juanalberticohf.console.ConsoleInput
+import com.github.juanalberticohf.console.IConsoleInput
 import com.github.juanalberticohf.models.Player
 import com.github.juanalberticohf.getPlayersTable
 import com.github.juanalberticohf.models.parsers.InputRound
 
-class RoundView {
+class RoundView (private val console: IConsoleInput = ConsoleInput()) {
     /**
      * Muestra la información de la ronda actual, incluyendo el número de ronda, las estadísticas de los jugadores y la guía de reparto de cartas.
      * @param roundNumber El número de la ronda actual.
@@ -36,7 +38,7 @@ class RoundView {
     fun requestBillAmount(): Int {
         while (true) {
             print("\nIntroduce el calculo del precio total de la cuenta: ")
-            val input = readlnOrNull()?.trim()
+            val input = console.readInput()?.trim()
             if (input != null) {
                 val billAmount = calculateBill(input)
                 if (billAmount == -1) {
@@ -61,12 +63,12 @@ class RoundView {
         }
         while (true) {
             print("Selecciona uno o varios (1,2,...): ")
-            val idsInputs = readln()
+            val idsInputs = console.readInput()?.trim() ?: ""
             // Convertir la entrada en una lista de enteros, ignorando espacios y validando que sean numeros
             val idsList = idsInputs.split(",").map { it.trim().toIntOrNull() }
-            // Todos los ids introducidos deben ser validos y corresponder a jugadores existentes
+            // Todos los ids introducidos deben ser válidos y corresponder a jugadores existentes
             if (idsList.all { id -> players.any { it.id == id } }) {
-                return idsList.filterNotNull() // Devolver solo los ids validos eliminando los nulls
+                return idsList.filterNotNull() // Devolver solo los ids válidos eliminando los nulls
             }
             println("\nEntrada no válida. Por favor, introduce los números de los jugadores separados por comas.")
         }
@@ -78,7 +80,7 @@ class RoundView {
      */
     fun requestSufficientCards(): Boolean {
         print("\n¿Se han jugado suficientes cartas? (S/N): ")
-        val input = readln().uppercase()
+        val input = console.readInput()?.uppercase()
         when (input) {
             "S" -> {
                 return true
@@ -122,13 +124,13 @@ class RoundView {
     /** Solicita al usuario que presione ENTER para finalizar la ronda */
     fun requestEndRound() {
         print("\nPresiona ENTER para finalizar la ronda...")
-        readln()
+        console.readInput()
     }
 
     /** Solicita al usuario que presione ENTER para avanzar a la siguiente ronda */
     fun requestNextRound() {
         print("\nPresiona ENTER para avanzar a la siguiente ronda...")
-        readln()
+        console.readInput()
     }
 
     /**
