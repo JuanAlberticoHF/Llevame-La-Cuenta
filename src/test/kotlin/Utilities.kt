@@ -33,4 +33,9 @@ class Utilities {
             Player(3, "Alejandro", 900)
         )
         assertEquals(tablaResultado, getPlayersTable(players) )}
+
+    @Test
+    fun calculateBill(){
+        // TODO: Implementar el test del calculo de cuenta.
+    }
 }
