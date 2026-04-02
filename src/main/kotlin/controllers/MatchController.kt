@@ -16,15 +16,14 @@ import com.github.juanalberticohf.views.MatchView
  * @see Match
  * @see Player
  */
-class MatchController {
-    val matchView = MatchView() // Instancia de la vista de la partida
+class MatchController (val matchView: MatchView = MatchView()): IMatchController {
 
     /**
      * Inicia una nueva partida solicitando los nombres de los jugadores,
      * calculando el dinero inicial y mostrando la tabla de ahorros.
      * Crea una instancia de Match con los jugadores.
      */
-    fun matchStart() {
+    override fun matchStart() {
         matchView.startMatchMessage()
 
         // OBTENER DATOS DE LA PARTIDA
@@ -47,7 +46,7 @@ class MatchController {
      * Una vez finalizada la partida, se llama al mét0do matchEnd para mostrar el resultado final y el ganador.
      * @param playerList Lista de objetos Player que participan en la partida
      */
-    fun matchInProgress(playerList: List<Player>) {
+    override fun matchInProgress(playerList: List<Player>) {
         val match = Match(playerList) // Creación de la partida con los jugadores
 
         val roundController = RoundController(match) // Creación del controlador de ronda con la partida
@@ -66,7 +65,7 @@ class MatchController {
      * calcula el jugador ganador o solicita el desempate en caso y finalizar la partida finalmente.
      * @param match Instancia de Match con el estado final de la partida
      */
-    fun matchEnd(match: Match) {
+    override fun matchEnd(match: Match) {
         // Muestra un mensaje indicando el fin de la partida
         val playerWithoutSaves = match.players.find { it.currentSaves <= 0 }!! // Buscar un jugador sin ahorros
         matchView.showEndOfMatch(playerWithoutSaves)
@@ -101,7 +100,7 @@ class MatchController {
      * @param startingMoney Dinero inicial para cada jugador.
      * @return Lista de objetos Player.
      */
-    fun getPlayerList(playerNameList: List<String>, startingMoney: Int): List<Player> {
+    override fun getPlayerList(playerNameList: List<String>, startingMoney: Int): List<Player> {
         val playerList = mutableListOf<Player>()
 
         for (i in playerNameList.indices) {
