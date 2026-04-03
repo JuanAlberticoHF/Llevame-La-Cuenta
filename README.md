@@ -1,5 +1,8 @@
 # Llevame La Cuenta
 
+- Guia de usuario: [Llevame La Cuenta - Guía de Usuario](./Guia%20de%20Usuario.md)
+- Repositorio: [Llevame La Cuenta - GitHub](https://github.com/JuanAlberticoHF/Llevame-La-Cuenta)
+
 ## ¿Qué es?
 **Llevame La Cuenta** es un programa inspirado en el juego de cartas "La Cuenta" que viene a facilitar la 
 administración de una partida, gestionando los ahorros de los jugadores por cada ronda, facilitar el 
