@@ -1,7 +1,7 @@
 # GUIA DE USUARIO
 - Ver. Proyecto: 0.1.0
-- Ver. Guía: 1.0.0
-- FECHA: 04/04/2026
+- Ver. Documento: 1.0.0
+- Fecha: 04/04/2026
 
 # INDICE
 - [Introducción](#introducción)
