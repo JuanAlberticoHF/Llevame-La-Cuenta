@@ -26,7 +26,7 @@ el proyecto con las propias herramientas de GitHub (Issues, Projects) y desarrol
 
 ## ¿Cuántas fases tendrá el desarrollo?
 
-### 1ª FASE - 26/06/2024
+### 1ª FASE - 04/04/2026
 
 Programa funcional que permite administrar la partida de "La Cuenta" desde la consola, permitiendo gestionar los ahorros
 de los jugadores, calcular la cuenta, restarle los pagos a los jugadores y al terminar la partida imprimiendo los resultados.
