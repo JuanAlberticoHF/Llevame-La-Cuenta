@@ -1,0 +1,109 @@
+package com.github.juanalberticohf
+
+import com.github.juanalberticohf.models.Player
+import java.text.DecimalFormat
+
+/**
+ * Calcula el dinero inicial para cada jugador basado en el numero total de jugadores.
+ * @param numPlayers Numero total de jugadores en la partida.
+ * @return el ahorro incial de cada jugador.
+ */
+fun getStartingMoney(numPlayers: Int): Int {
+    return 900 + 100 * (numPlayers - 3)
+}
+
+/**
+ * Construye y devuelve una tabla con las columnas: JUGADORES | AHORROS | FICHAS A.
+ * La columna de nombres adapta su ancho al nombre más largo para mantener coherencia visual.
+ *
+ * @param players Lista de objetos Player que contiene la información de cada jugador.
+ * @return Una cadena formateada que representa la tabla de jugadores, ahorros y fich
+ */
+fun getPlayersTable(players: List<Player>): String {
+    val sb = StringBuilder()
+
+    if (players.isEmpty()) {
+        sb.append("(Sin jugadores)\n")
+        return sb.toString()
+    }
+
+    val nameHeader = "JUGADORES"
+    val savingsHeader = "AHORROS"
+    val tokensHeader = "FICHAS A."
+
+    val savingsFmt = DecimalFormat("0") // Usar formato sin separador de miles: 1400, 1200, 900
+
+    val maxNameLength = players.maxOf { it.name.length }
+    val nameColWidth = maxOf(nameHeader.length, maxNameLength) + 2
+
+    val maxSavingsLength = players.maxOf { savingsFmt.format(it.currentSaves).length + 1 } // +1 para €
+    val savingsColWidth = maxOf(savingsHeader.length, maxSavingsLength) + 2
+
+    val maxTokensLength = players.maxOf { it.increaseTokens.toString().length }
+    val tokensColWidth = maxOf(tokensHeader.length, maxTokensLength) + 2
+
+    val headerFormat = "| %-${nameColWidth}s | %${savingsColWidth}s | %${tokensColWidth}s |"
+    val rowFormat = "| %-${nameColWidth}s | %${savingsColWidth}s | %${tokensColWidth}s |"
+
+    val headerLine = headerFormat.format(nameHeader, savingsHeader, tokensHeader)
+    val separator = "-".repeat(headerLine.length)
+
+    sb.append(separator).append('\n')
+    sb.append(headerLine).append('\n')
+    sb.append(separator).append('\n')
+
+    for (p in players) {
+        val savingsStr = savingsFmt.format(p.currentSaves) + "€"
+        val tokensStr = p.increaseTokens.toString()
+        sb.append(rowFormat.format(p.name, savingsStr, tokensStr)).append('\n')
+    }
+
+    sb.append(separator)
+    return sb.toString()
+}
+
+/**
+ * Procesa y calcula el monto total de la cuenta a partir de una cadena de texto que representa el calculo de la cuenta.
+ *
+ * La cadena contiene numeros y operadores de suma y resta, por ejemplo: "100+50-20".
+ *
+ * El metodo evalua la expresion y devuelve el resultado final como un valor Int.
+ */
+fun calculateBill(billToCalculate: String): Int {
+    var total = 0
+    var currentNumber = ""
+    var currentOperator = '+'
+    var hasDigits = false
+
+    for (char in billToCalculate) {
+        when (char) {
+            in '0'..'9' -> {
+                currentNumber += char
+                hasDigits = true
+            }
+            '+', '-' -> {
+                if (currentNumber.isNotEmpty()) {
+                    val number = currentNumber.toInt()
+                    total = if (currentOperator == '+') total + number else total - number
+                    currentNumber = ""
+                }
+                currentOperator = char
+            }
+            else -> {
+                return -1 // Si se encuentra un caracter no valido, se devuelve -1 para indicar un error
+            }
+        }
+    }
+
+    // Procesar el último número si existe
+    if (currentNumber.isNotEmpty()) {
+        val number = currentNumber.toInt()
+        total = if (currentOperator == '+') total + number else total - number
+    }
+
+    if (hasDigits) {
+        return total
+    }
+
+    return -1 // Si no se han encontrado dígitos, se devuelve -1 para indicar un error
+}
