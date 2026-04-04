@@ -60,13 +60,15 @@ programa, se puede ejecutar directamente esta función desde el IDE.
   - En IntelliJ IDEA: `Run > Run 'MainKt'` o clic derecho en el archivo `Main.kt` y seleccionar `Run 'MainKt'`.
 - **Paso 4: Generar el ejecutable:**
     
-    Para generar el archivo ejecutable `LlevameLaCuenta-0.1.jar`, se puede utilizar el comando de Maven desde la terminal:
+    Para generar el archivo ejecutable `llevame-la-cuenta-0.1.0.jar`, se puede utilizar el comando de Maven desde la terminal:
     ```bash
     mvn clean package
     ```
-    Esto generará el archivo `LlevameLaCuenta-0.1.jar` en la carpeta `target/` del proyecto, que se puede ejecutar con el comando:
+    Esto generará el archivo `llevame-la-cuenta-0.1.0.jar` y `llevame-la-cuenta-0.1.0-jar-with-dependencies.jar` 
+en la carpeta `target/` del proyecto, siendo el unico funcional la version con dependencias, 
+que se puede ejecutar con el comando:
     ```bash
-    java -jar target/LlevameLaCuenta-0.1.jar
+    java -jar target/llevame-la-cuenta-0.1.0-jar-with-dependencies.jar
     ```
   
     Si no se tiene Maven instalado, se puede generar el ejecutable desde el IDE utilizando la opción de empaquetado o
@@ -75,9 +77,11 @@ se puede generar el JAR de la siguiente manera:
   - File > Project Structure > Artifacts > + > JAR > From modules with dependencies > selecciona el módulo principal (Main.kt) > OK > Apply > OK
   - Luego, para generar el JAR, se puede abrir las pestaña de Maven (View > Tool Windows > Maven), abrir el menú de
 Lifecycle y hacer doble clic en `package` para ejecutar el comando `mvn package` desde el IDE, lo que generará el
-archivo `LlevameLaCuenta-0.1.jar` en la carpeta `target/` del proyecto, que se puede ejecutar con el comando:
+archivo `llevame-la-cuenta-0.1.0.jar` y `llevame-la-cuenta-0.1.0-jar-with-dependencies.jar`
+en la carpeta `target/` del proyecto, siendo el unico funcional la version con dependencias,
+que se puede ejecutar con el comando:
     ```bash
-    java -jar target/LlevameLaCuenta-0.1.jar
+    java -jar target/llevame-la-cuenta-0.1.0-jar-with-dependencies.jar
     ```
 
 
