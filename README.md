@@ -1,6 +1,6 @@
 # Llevame La Cuenta
 
-- Guia de usuario: [Llevame La Cuenta - Guía de Usuario](./Guia%20de%20Usuario.md)
+- Guia de usuario: [Llevame La Cuenta - Guía de Usuario](./docs/USER_GUIDE.md)
 - Repositorio: [Llevame La Cuenta - GitHub](https://github.com/JuanAlberticoHF/Llevame-La-Cuenta)
 
 ## ¿Qué es?
