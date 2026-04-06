@@ -1,6 +1,6 @@
 # GUIA DE USUARIO
-- Ver. Proyecto: 0.1.0
-- Ver. Documento: 1.0.0
+- Ver. Proyecto: 0.1.1
+- Ver. Documento: 1.0.1
 - Fecha: 04/04/2026
 
 # INDICE
@@ -40,15 +40,15 @@ por lo que es importante finalizar la partida correctamente para obtener los res
 Para ejecutar el programa, en la consola se requiere:
 - Tener acceso a una terminal o consola de comandos en el sistema operativo.
 - Tener instalado Java Runtime Environment (JRE) versión 8 o superior.
-- Tener el archivo ejecutable del programa (llevame-la-cuenta-0.1.jar) en el directorio de trabajo.
+- Tener el archivo ejecutable del programa (llevame-la-cuenta-0.1.1.jar) en el directorio de trabajo.
 
 # Ejecución del programa
 Para ejecutar el programa, sigue estos pasos:
 1. Abre una terminal o consola de comandos.
-2. Navega al directorio donde se encuentra el archivo ejecutable del programa (LlevameLaCuenta-0.1.jar).
+2. Navega al directorio donde se encuentra el archivo ejecutable del programa (llevame-la-cuenta-0.1.1.jar).
 3. Ejecuta el siguiente comando:
 ```bash
-java -jar llevame-la-cuenta-0.1.0.jar
+java -jar llevame-la-cuenta-0.1.1.jar
 ```
 
 # Como usar Llevame La Cuenta
@@ -112,7 +112,7 @@ donde podrá iniciar una nueva partida o salir del programa.
 # FAQ: Problemas comunes y soluciones
 - **¿Qué hago si el programa no se ejecuta?**
   - Asegúrate de tener Java Runtime Environment (JRE) instalado en tu sistema y de estar ejecutando el comando en el 
-  directorio correcto donde se encuentra el archivo `llevame-la-cuenta-0.1.0.jar`.
+  directorio correcto donde se encuentra el archivo `llevame-la-cuenta-0.1.1.jar`.
 - **¿Puedo guardar mi partida para continuarla más tarde?**
   - Actualmente, la opción de guardar y continuar partidas no está disponible, pero se planea implementar esta 
   funcionalidad en futuras versiones del programa.
