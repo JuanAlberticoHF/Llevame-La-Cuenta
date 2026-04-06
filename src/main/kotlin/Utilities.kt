@@ -36,7 +36,7 @@ fun getPlayersTable(players: List<Player>): String {
     val maxNameLength = players.maxOf { it.name.length }
     val nameColWidth = maxOf(nameHeader.length, maxNameLength) + 2
 
-    val maxSavingsLength = players.maxOf { savingsFmt.format(it.currentSaves).length + 1 } // +1 para €
+    val maxSavingsLength = players.maxOf { savingsFmt.format(it.currentSaves).length + 1 } // +1 para $
     val savingsColWidth = maxOf(savingsHeader.length, maxSavingsLength) + 2
 
     val maxTokensLength = players.maxOf { it.increaseTokens.toString().length }
@@ -53,7 +53,7 @@ fun getPlayersTable(players: List<Player>): String {
     sb.append(separator).append('\n')
 
     for (p in players) {
-        val savingsStr = savingsFmt.format(p.currentSaves) + "€"
+        val savingsStr = savingsFmt.format(p.currentSaves) + "$"
         val tokensStr = p.increaseTokens.toString()
         sb.append(rowFormat.format(p.name, savingsStr, tokensStr)).append('\n')
     }
