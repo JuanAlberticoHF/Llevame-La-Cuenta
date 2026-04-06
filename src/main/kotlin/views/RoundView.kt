@@ -45,7 +45,7 @@ class RoundView (private val console: IConsoleInput = ConsoleInput()) {
                     println("Entrada no válida. Por favor, introduce un cálculo válido para el monto total de la cuenta.")
                     continue
                 }
-                println("Monto calculado: $billAmount€.")
+                println("Monto calculado: $billAmount$.")
                 return billAmount
             }
         }
@@ -107,16 +107,16 @@ class RoundView (private val console: IConsoleInput = ConsoleInput()) {
     fun showRoundStats(inputRound: InputRound, playerList: List<Player>) {
         println("\n[] RESULTADOS DE LA RONDA")
         println("- ${playerList.find { it.id == inputRound.billRequester}?.name} pidio la cuenta.")
-        println("- Valor total de la cuenta: ${inputRound.billAmount}€.")
+        println("- Valor total de la cuenta: ${inputRound.billAmount}$.")
         println("- Metodo de pago utilizado: ${inputRound.paymentMethod}.")
         println("- Pagos realizados por cada jugador:")
         inputRound.playersStats.forEach {
             if (it.payAmount > 0 && it.playerId == inputRound.billRequester) {
-                println("\t- ${playerList.find { player -> player.id == it.playerId }?.name}: -${it.payAmount}€ +" +
+                println("\t- ${playerList.find { player -> player.id == it.playerId }?.name}: -${it.payAmount}$ +" +
                         if(it.obtainedTokens > 0) "1 ficha de aumento" else " no recibe ficha de aumento"
                 )
             } else if (it.payAmount > 0) {
-                println("\t- ${playerList.find { player -> player.id == it.playerId }?.name}: -${it.payAmount}€.")
+                println("\t- ${playerList.find { player -> player.id == it.playerId }?.name}: -${it.payAmount}$.")
             }
         }
     }

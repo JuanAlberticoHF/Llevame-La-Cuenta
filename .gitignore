@@ -40,3 +40,5 @@ build/
 /.idea/dictionaries/project.xml
 /.idea/copilot.data.migration.agent.xml
 /src/main/kotlin/models/parsers/InputPlayerStats.kt
+/.idea/artifacts/llevame_la_cuenta_jar.xml
+/out/artifacts/llevame_la_cuenta_jar/llevame-la-cuenta.jar

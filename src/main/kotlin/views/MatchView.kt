@@ -63,10 +63,10 @@ class MatchView (private val console: IConsoleInput = ConsoleInput()) {
             ------------------------------------------------------------------
             | JUGADORES |   3   |    4   |    5   |    6   |    7   |    8   |
             ------------------------------------------------------------------
-            | AHORROS   |  900€ | 1.000€ | 1.100€ | 1.200€ | 1.300€ | 1.400€ |
+            | AHORROS   |  900$ | 1.000$ | 1.100$ | 1.200$ | 1.300$ | 1.400$ |
             ------------------------------------------------------------------
         """.trimIndent())
-        println("Al ser $numPlayers jugadores, cada uno empezara la partida con ${getStartingMoney(numPlayers)}€ de ahorros.")
+        println("Al ser $numPlayers jugadores, cada uno empezara la partida con ${getStartingMoney(numPlayers)}$ de ahorros.")
     }
 
     /** Muestra las reglas basicas del juego */
@@ -96,7 +96,7 @@ class MatchView (private val console: IConsoleInput = ConsoleInput()) {
      */
     fun showEndOfMatch(playerWithoutSaves: Player) {
         println("\n[] FIN DE LA PARTIDA")
-        println("El jugador ${playerWithoutSaves.name} se ha quedado sin ahorros con un valor de ${playerWithoutSaves.currentSaves}€.")
+        println("El jugador ${playerWithoutSaves.name} se ha quedado sin ahorros con un valor de ${playerWithoutSaves.currentSaves}$.")
         println("Para determinar el ganador se comparan los ahorros de los jugadores restantes.")
     }
 
@@ -112,7 +112,7 @@ class MatchView (private val console: IConsoleInput = ConsoleInput()) {
      */
     fun showWinner(winner: Player) {
         println("\n[] GANADOR")
-        println("${winner.name} ha ganado la partida con ${winner.currentSaves}€ ahorrados. ¡¡FELICIDADES!!")
+        println("${winner.name} ha ganado la partida con ${winner.currentSaves}$ ahorrados. ¡¡FELICIDADES!!")
     }
 
     /**
@@ -139,7 +139,7 @@ class MatchView (private val console: IConsoleInput = ConsoleInput()) {
                 }
             }
         }
-        println("tienen la maxima cantidad de ahorros (${winners.first().currentSaves}€).")
+        println("tienen la maxima cantidad de ahorros (${winners.first().currentSaves}$).")
         println("- Para el desempate se debe determinar cual jugador tiene mas dinero en su mano para elegirlo ganador.")
         println("- Si los jugadores tambien tienen la misma cantidad de dinero en mano, los mismos jugadores decidiran el ganador por consenso.")
         winners.forEach {
@@ -174,7 +174,7 @@ class MatchView (private val console: IConsoleInput = ConsoleInput()) {
         println("- Ganador: ${match.players.find { it.isWinner}?.name}")
         println("- Rondas jugadas: ${match.rounds.size}.")
         match.players.forEach {
-            println("\t${it.name}: ${it.currentSaves}€ - ${it.increaseTokens} Fichas A.")
+            println("\t${it.name}: ${it.currentSaves}$ - ${it.increaseTokens} Fichas A.")
         }
     }
 }
